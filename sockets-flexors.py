@@ -18,7 +18,7 @@ print("conexión establecida con: " + str(address))
 
 try:
     while True:
-        values = [leer_sensor(i) for i in range(5)] 
+        values = [read_sensor(i) for i in range(5)] 
         message = ','.join(map(str, values)) + '\n' 
         client_socket.send(message.encode())  
         time.sleep(0.1)  
@@ -28,7 +28,7 @@ except KeyboardInterrupt:
     server_socket.close()
 
 # FUNCIONES
-def leer_sensor(channel):
+def read_sensor(channel):
     adc = spi.xfer2([1, (8 + channel) << 4, 0])
     data = ((adc[1] & 3) << 8) + adc[2]
     return data
