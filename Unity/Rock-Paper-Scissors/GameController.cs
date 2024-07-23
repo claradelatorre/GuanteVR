@@ -102,7 +102,7 @@ public class GameController : MonoBehaviour
     {
         foreach (var gesture in gestures)
         {
-            gesture.SetActive(false); // Asegurarse de que todos los gestos están desactivados
+            gesture.SetActive(false); 
         }
         gestures[gestureIndex].SetActive(true);
     }
@@ -116,7 +116,7 @@ public class GameController : MonoBehaviour
     //MUESTRA LOS RESULTADOS FINALES DEL JUEGO
     private void ShowFinalResults()
     {
-        roundText.text = playerScore > computerScore ? "¡Player wins!" : "¡Rival wins!";
+        roundText.text = playerScore > computerScore ? "Player wins!" : "Rival wins!";
         StartCoroutine(ResetGame());
     }
 
@@ -156,12 +156,12 @@ public class GameController : MonoBehaviour
             if (playerWins)
             {
                 playerScore++;
-                roundText.text = "¡Player wins the round!";
+                roundText.text = "Player wins the round!";
             }
             else
             {
                 computerScore++;
-                roundText.text = "¡Rival wins the round!";
+                roundText.text = "Rival wins the round!";
             }
         }
         roundText.gameObject.SetActive(true);
